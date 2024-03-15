@@ -1,0 +1,645 @@
+Program.Sub.ScreenSU.Start
+gui.frmSOUpdate..create
+gui.frmSOUpdate..caption("Sales Order Customer Update")
+gui.frmSOUpdate..size(5200,3795)
+gui.frmSOUpdate..minx(0)
+gui.frmSOUpdate..miny(0)
+gui.frmSOUpdate..position(0,0)
+gui.frmSOUpdate..event(unload,Unload_Form)
+gui.frmSOUpdate..alwaysontop(False)
+gui.frmSOUpdate..fontname("Arial")
+gui.frmSOUpdate..fontsize(8)
+gui.frmSOUpdate..forecolor(0)
+gui.frmSOUpdate..fontstyle(False,False,False,False,)
+gui.frmSOUpdate..BackColor(-2147483633)
+gui.frmSOUpdate..controlbox(True)
+gui.frmSOUpdate..maxbutton(True)
+gui.frmSOUpdate..minbutton(True)
+gui.frmSOUpdate..mousepointer(0)
+gui.frmSOUpdate..moveable(True)
+gui.frmSOUpdate..sizeable(True)
+gui.frmSOUpdate..ShowInTaskBar(True)
+gui.frmSOUpdate..titlebar(True)
+gui.frmSOUpdate.lblNewCust.create(label,"Select New Customer:",True,1935,255,1,850,1400,True,0,Arial,8,-2147483633,0)
+gui.frmSOUpdate.lblNewCust.defaultvalue("")
+gui.frmSOUpdate.lblNewCust.controlgroup(0)
+gui.frmSOUpdate.txtNewCust.create(textbox,"",True,1250,300,0,2500,1400,True,0,Arial,8,-2147483643,1)
+gui.frmSOUpdate.txtNewCust.maxLength(6)
+gui.frmSOUpdate.txtNewCust.event(lostfocus,txtNewCust_LostFocus)
+gui.frmSOUpdate.txtNewCust.defaultvalue("")
+gui.frmSOUpdate.txtNewCust.controlgroup(0)
+gui.frmSOUpdate.lblOldCust.create(label,"Current Customer:",True,1935,255,1,850,900,True,0,Arial,8,-2147483633,0)
+gui.frmSOUpdate.lblOldCust.defaultvalue("")
+gui.frmSOUpdate.lblOldCust.controlgroup(0)
+gui.frmSOUpdate.txtOldCust.create(textbox,"",True,1250,300,0,2500,900,False,0,Arial,8,-2147483643,1)
+gui.frmSOUpdate.txtOldCust.maxLength(6)
+gui.frmSOUpdate.txtOldCust.defaultvalue("")
+gui.frmSOUpdate.txtOldCust.controlgroup(0)
+gui.frmSOUpdate.lblNewShip.create(label,"Ship To ID:",True,1425,255,1,850,1900,True,0,Arial,8,-2147483633,0)
+gui.frmSOUpdate.lblNewShip.defaultvalue("")
+gui.frmSOUpdate.lblNewShip.controlgroup(0)
+gui.frmSOUpdate.cmdCustBrws.create(button)
+gui.frmSOUpdate.cmdCustBrws.caption("^")
+gui.frmSOUpdate.cmdCustBrws.visible(True)
+gui.frmSOUpdate.cmdCustBrws.size(300,300)
+gui.frmSOUpdate.cmdCustBrws.zorder(0)
+gui.frmSOUpdate.cmdCustBrws.position(3800,1400)
+gui.frmSOUpdate.cmdCustBrws.enabled(True)
+gui.frmSOUpdate.cmdCustBrws.fontname("Arial")
+gui.frmSOUpdate.cmdCustBrws.fontsize(8)
+gui.frmSOUpdate.cmdCustBrws.event(click,cmdCustBrws_click)
+gui.frmSOUpdate.cmdCustBrws.defaultvalue("")
+gui.frmSOUpdate.cmdCustBrws.controlgroup(0)
+gui.frmSOUpdate.txtNewShipTo.create(textbox,"",True,1250,300,0,2500,1900,False,0,Arial,8,-2147483643,1)
+gui.frmSOUpdate.txtNewShipTo.maxLength(6)
+gui.frmSOUpdate.txtNewShipTo.event(lostfocus,txtShipTo_LostFocus)
+gui.frmSOUpdate.txtNewShipTo.defaultvalue("")
+gui.frmSOUpdate.txtNewShipTo.controlgroup(0)
+gui.frmSOUpdate.lblOrderNo.create(label,"Enter Sales Order:",True,1935,255,1,850,400,True,0,Arial,8,-2147483633,0)
+gui.frmSOUpdate.lblOrderNo.defaultvalue("")
+gui.frmSOUpdate.lblOrderNo.controlgroup(0)
+gui.frmSOUpdate.txtOrderNo.create(textbox,"",True,1250,300,0,2500,400,True,0,Arial,8,-2147483643,1)
+gui.frmSOUpdate.txtOrderNo.maxLength(7)
+gui.frmSOUpdate.txtOrderNo.event(lostfocus,txtOrdNo_LostFocus)
+gui.frmSOUpdate.txtOrderNo.defaultvalue("")
+gui.frmSOUpdate.txtOrderNo.controlgroup(0)
+gui.frmSOUpdate.cmdOrderNo.create(button)
+gui.frmSOUpdate.cmdOrderNo.caption("^")
+gui.frmSOUpdate.cmdOrderNo.visible(True)
+gui.frmSOUpdate.cmdOrderNo.size(300,300)
+gui.frmSOUpdate.cmdOrderNo.zorder(0)
+gui.frmSOUpdate.cmdOrderNo.position(3800,400)
+gui.frmSOUpdate.cmdOrderNo.enabled(True)
+gui.frmSOUpdate.cmdOrderNo.fontname("Arial")
+gui.frmSOUpdate.cmdOrderNo.fontsize(8)
+gui.frmSOUpdate.cmdOrderNo.event(click,cmdOrderNo_click)
+gui.frmSOUpdate.cmdOrderNo.defaultvalue("")
+gui.frmSOUpdate.cmdOrderNo.controlgroup(0)
+gui.frmSOUpdate.cmdShipTo.create(button)
+gui.frmSOUpdate.cmdShipTo.caption("^")
+gui.frmSOUpdate.cmdShipTo.visible(True)
+gui.frmSOUpdate.cmdShipTo.size(300,300)
+gui.frmSOUpdate.cmdShipTo.zorder(0)
+gui.frmSOUpdate.cmdShipTo.position(3800,1900)
+gui.frmSOUpdate.cmdShipTo.enabled(False)
+gui.frmSOUpdate.cmdShipTo.fontname("Arial")
+gui.frmSOUpdate.cmdShipTo.fontsize(8)
+gui.frmSOUpdate.cmdShipTo.event(click,cmdShipTo_click)
+gui.frmSOUpdate.cmdShipTo.defaultvalue("")
+gui.frmSOUpdate.cmdShipTo.controlgroup(0)
+gui.frmSOUpdate.cmdUpdate.create(button)
+gui.frmSOUpdate.cmdUpdate.caption("Update")
+gui.frmSOUpdate.cmdUpdate.visible(True)
+gui.frmSOUpdate.cmdUpdate.size(900,350)
+gui.frmSOUpdate.cmdUpdate.zorder(0)
+gui.frmSOUpdate.cmdUpdate.position(1400,2500)
+gui.frmSOUpdate.cmdUpdate.enabled(True)
+gui.frmSOUpdate.cmdUpdate.fontname("Arial")
+gui.frmSOUpdate.cmdUpdate.fontsize(8)
+gui.frmSOUpdate.cmdUpdate.event(click,cmdUpdate_click)
+gui.frmSOUpdate.cmdUpdate.defaultvalue("")
+gui.frmSOUpdate.cmdUpdate.controlgroup(0)
+gui.frmSOUpdate.cmdCancel.create(button)
+gui.frmSOUpdate.cmdCancel.caption("Cancel")
+gui.frmSOUpdate.cmdCancel.visible(True)
+gui.frmSOUpdate.cmdCancel.size(900,350)
+gui.frmSOUpdate.cmdCancel.zorder(0)
+gui.frmSOUpdate.cmdCancel.position(2650,2500)
+gui.frmSOUpdate.cmdCancel.enabled(True)
+gui.frmSOUpdate.cmdCancel.fontname("Arial")
+gui.frmSOUpdate.cmdCancel.fontsize(8)
+gui.frmSOUpdate.cmdCancel.event(click,Unload_Form)
+gui.frmSOUpdate.cmdCancel.defaultvalue("")
+gui.frmSOUpdate.cmdCancel.controlgroup(0)
+gui.frmSOUpdate.txtOrderNo.tabstop(True)
+gui.frmSOUpdate.txtOrderNo.tabindex(1)
+gui.frmSOUpdate.cmdOrderNo.tabstop(True)
+gui.frmSOUpdate.cmdOrderNo.tabindex(2)
+gui.frmSOUpdate.txtNewCust.tabstop(True)
+gui.frmSOUpdate.txtNewCust.tabindex(3)
+gui.frmSOUpdate.cmdCustBrws.tabstop(True)
+gui.frmSOUpdate.cmdCustBrws.tabindex(4)
+gui.frmSOUpdate.txtNewShipTo.tabstop(True)
+gui.frmSOUpdate.txtNewShipTo.tabindex(5)
+gui.frmSOUpdate.cmdShipTo.tabstop(True)
+gui.frmSOUpdate.cmdShipTo.tabindex(6)
+gui.frmSOUpdate.cmdUpdate.tabstop(True)
+gui.frmSOUpdate.cmdUpdate.tabindex(7)
+gui.frmSOUpdate.cmdCancel.tabstop(True)
+gui.frmSOUpdate.cmdCancel.tabindex(8)
+Program.Sub.ScreenSU.End
+
+Program.Sub.Preflight.Start
+Variable.Global.sNewCustomer.Declare(String)
+Variable.Global.sOldCustomer.Declare(String)
+Variable.Global.sOrderNo.Declare(String)
+Variable.Global.sOrdShipToID.Declare(String)
+Variable.Global.sShipTo.Declare(String)
+Program.Sub.Preflight.End
+
+Program.Sub.Main.Start
+'This program will allow the user from a custom menu item to change the Customer on a Sales Order
+
+V.Local.sIcon.Declare(String)
+
+F.ODBC.Connection!con.OpenConnection(V.Ambient.PDSN,V.Ambient.PUser,V.Ambient.PPass)
+
+F.Intrinsic.Control.CallSub(Createordshipto)
+
+F.Intrinsic.String.Build("{0}\ART\gss2.ico",V.Caller.GlobalDir,V.Local.sIcon)
+Gui.frmSOUpdate..Icon(V.Local.sIcon)
+Gui.frmSOUpdate..Show
+Gui.frmSOUpdate.txtOrderNo.SetFocus
+Program.Sub.Main.End
+
+Program.Sub.cmdCustBrws_click.Start
+'Browser to select the new customer
+
+V.Local.sSQL.Declare(String)
+V.Local.sRet.Declare(String)
+
+F.Intrinsic.UI.Browser(205,"",V.Local.sRet)
+F.Intrinsic.String.Split(V.Local.sRet,"*!*",V.Local.sRet)
+
+F.Intrinsic.Control.If(V.Local.sRet,=,"***CANCEL***")
+'	F.Intrinsic.UI.Msgbox("No Customer Selected","Customer Browser")
+F.Intrinsic.Control.Else
+	V.Global.sNewCustomer.Set(V.Local.sRet(0))
+	Gui.frmSOUpdate.txtNewCust.Text(V.Global.sNewCustomer)
+	
+	F.Intrinsic.String.Build("SELECT CUSTOMER FROM V_OE_MULTI_SHIP WHERE CUSTOMER = '{0}';",V.Global.sNewCustomer,V.Local.sSQL)
+	F.ODBC.Connection!con.ExecuteAndReturn(V.Local.sSQL,V.Local.sRet)
+	F.Intrinsic.Control.If(V.Local.sRet,=,"")
+		Gui.frmSOUpdate.txtNewShipTo.Text("")
+		Gui.frmSOUpdate.txtNewShipTo.Enabled(False)
+		Gui.frmSOUpdate.cmdShipTo.Enabled(False)
+	F.Intrinsic.Control.Else
+		Gui.frmSOUpdate.txtNewShipTo.Enabled(True)
+		Gui.frmSOUpdate.cmdShipTo.Enabled(True)
+	F.Intrinsic.Control.EndIf
+F.Intrinsic.Control.EndIf
+Program.Sub.cmdCustBrws_click.End
+
+Program.Sub.Unload.Start
+'Update another Sales Order or close the program
+
+V.Local.sMsg.Declare(String)
+V.Local.iRet.Declare(Long)
+
+F.Intrinsic.String.Build("Sales Order Update is complete.{0}{0}Do you want to update another Sales Order? ",V.Ambient.NewLine,V.Local.sMsg)
+F.Intrinsic.UI.Msgbox(V.Local.sMsg,"Sales Order Customer Update",4,V.Local.iRet)
+F.Intrinsic.Control.If(V.Local.iRet,=,6)
+	Gui.frmSOUpdate.txtOrderNo.Text("")
+	Gui.frmSOUpdate.txtOldCust.Text("")
+	Gui.frmSOUpdate.txtNewCust.Text("")
+	Gui.frmSOUpdate.txtNewShipTo.Text("")
+	Gui.frmSOUpdate..Show
+	Gui.frmSOUpdate.txtOrderNo.SetFocus
+F.Intrinsic.Control.Else
+	F.ODBC.Connection!con.Close
+	F.Intrinsic.Control.End
+
+F.Intrinsic.Control.EndIf
+Program.Sub.Unload.End
+
+Program.Sub.cmdOrderNo_click.Start
+'Browser to select the Sales Order to update
+
+V.Local.sRet.Declare(String)
+V.Local.sOrderNo.Declare(String)
+V.Local.sOrdCust.Declare(String)
+V.Local.sHeader.Declare(String)
+V.Local.sWidth.Declare(String)
+
+F.Intrinsic.String.Split("Order Number*!*Customer*!*Ship To*!*Due Date*!*Customer PO","*!*",V.Local.sHeader)
+F.Intrinsic.String.Split("1000*!*1500*!*1000*!*1000*!*1500","*!*",V.Local.sWidth)
+
+F.Intrinsic.UI.Browser("Select Sales Order:","con","SELECT ORDER_NO, CUSTOMER, SHIP_ID, DATE_DUE, CUSTOMER_PO FROM V_ORDER_HEADER ORDER BY ORDER_NO ASC;",V.Local.sHeader,V.Local.sWidth,V.Local.sRet)
+F.Intrinsic.String.Split(V.Local.sRet,"*!*",V.Local.sRet)
+
+F.Intrinsic.Control.If(V.Local.sRet,"=","***CANCEL***")
+'	F.Intrinsic.UI.Msgbox("No Sales Order was selected","Sales Order Browser")
+F.Intrinsic.Control.Else
+	V.Global.sOrderNo.Set(V.Local.sRet(0))
+	Gui.frmSOUpdate.txtOrderNo.Text(V.Global.sOrderNo)
+	V.Global.sOldCustomer.Set(V.Local.sRet(1))
+	Gui.frmSOUpdate.txtOldCust.Text(V.Global.sOldCustomer)
+F.Intrinsic.Control.EndIf
+Program.Sub.cmdOrderNo_click.End
+
+Program.Sub.cmdUpdate_click.Start
+'Update the Customer on the Sales Order
+
+V.Local.sSQL.Declare(String)
+V.Local.sRet.Declare(String)
+V.Local.sMsg.Declare(String)
+
+F.Intrinsic.String.Build("SELECT SHIP_ID FROM V_ORDER_HEADER WHERE ORDER_NO = '{0}';",V.Global.sOrderNo,V.Local.sSQL)
+F.ODBC.Connection!con.ExecuteAndReturn(V.Local.sSQL,V.Global.sOrdShipToID)
+
+F.Intrinsic.Control.If(V.Global.sOrderNo,=,"")
+	F.Intrinsic.UI.Msgbox("Please select a Sales Order","Sales Order Validation")
+	Gui.frmSOUpdate.txtOrderNo.SetFocus
+F.Intrinsic.Control.Elseif(V.Global.sOrderNo,<>,"")
+	F.Intrinsic.Control.AndIf(V.Global.sNewCustomer,=,"")
+		F.Intrinsic.UI.Msgbox("Please select a New Customer","New Customer Validation")
+		Gui.frmSOUpdate.txtNewCust.SetFocus
+F.Intrinsic.Control.ElseIf(V.Global.sOldCustomer,=,V.Global.sNewCustomer)
+	F.Intrinsic.UI.Msgbox("Customers are the same. No Update.","Validate Customers")
+	Gui.frmSOUpdate.txtNewCust.Text("")
+	Gui.frmSOUpdate.txtNewCust.SetFocus
+F.Intrinsic.Control.Else
+	F.Intrinsic.String.Build("SELECT LOCK_TYPE,USER_ID FROM X_LOCK_FILE WHERE COMPANY = '{0}' AND LOCK_TYPE = 'SO' AND REC_KEY = '{1}';",V.Caller.CompanyCode,V.Global.sOrderNo,V.Local.sSQL)
+	F.ODBC.Connection!con.ExecuteAndReturn(V.Local.sSQL,V.Local.sRet)
+	F.Intrinsic.String.Split(V.Local.sRet,"*!*",V.Local.sRet)
+		F.Intrinsic.Control.If(V.Local.sRet(0),<>,"")
+			F.Intrinsic.String.Build("Sales Order {0} is locked by User ID {1}.",V.Global.sOrderNo,V.Local.sRet(1),V.Local.sMsg)
+			F.Intrinsic.UI.Msgbox(V.Local.sMsg,"Sales Order Locked")
+			Gui.frmSOUpdate.txtOrderNo.SetFocus
+		F.Intrinsic.Control.Else
+			Gui.frmSOUpdate..Visible(0)
+			F.Intrinsic.UI.InvokeWaitDialog("Updating Customer on Sales Order....","Sales Order Update")
+				F.Intrinsic.Control.If(V.Global.sOrdShipToID,=,"")
+					F.Intrinsic.Control.AndIf(V.Global.sShipTo,=,"")
+						F.Intrinsic.Control.CallSub(Updatesotbl1)
+				F.Intrinsic.Control.ElseIf(V.Global.sOrdShipToID,<>,"")
+					F.Intrinsic.Control.AndIf(V.Global.sShipTo,=,"")
+						F.ODBC.Connection!con.Execute("DELETE FROM GAB_ORDER_SHIP_TO;")
+						F.Intrinsic.Control.CallSub(Updatesotbl2)
+				F.Intrinsic.Control.ElseIf(V.Global.sShipTo,<>,"")
+					F.ODBC.Connection!con.Execute("DELETE FROM GAB_ORDER_SHIP_TO;")
+					F.Intrinsic.Control.CallSub(Updatesotbl3)
+				F.Intrinsic.Control.EndIf
+		F.Intrinsic.Control.EndIf
+F.Intrinsic.Control.EndIf
+Program.Sub.cmdUpdate_click.End
+
+Program.Sub.UpdateSOTbl1.Start
+'Both ShipTo are blank
+
+V.Local.sSQL.Declare(String)
+
+'ORDER_HEADER
+F.Intrinsic.UI.ChangeWaitStatus("Updating Customer on Sales Order....",20)
+	F.Intrinsic.String.Build("UPDATE ORDER_HEADER SET CUSTOMER = '{0}', SALESPERSON = (SELECT SALESPERSON FROM V_CUSTOMER_MASTER WHERE CUSTOMER = '{0}') WHERE ORDER_NO = '{1}' AND RECORD_TYPE = 'A';",V.Global.sNewCustomer,V.Global.sOrderNo,V.Local.sSQL)
+	F.ODBC.Connection!con.Execute(V.Local.sSQL)
+'ORDER_BILL_TO
+F.Intrinsic.UI.ChangeWaitStatus("Updating Customer on Sales Order....",40)
+	F.Intrinsic.String.Build("UPDATE ORDER_BILL_TO SET CUSTOMER = '{0}',",V.Global.sNewCustomer,V.Local.sSQL)
+	F.Intrinsic.String.Build("{0} NAME_CUSTOMER = (SELECT NAME_CUSTOMER FROM V_CUSTOMER_MASTER WHERE CUSTOMER = '{1}'),",V.Local.sSQL,V.Global.sNewCustomer,V.Local.sSQL)
+	F.Intrinsic.String.Build("{0} ADDRESS_1 = (SELECT ADDRESS1 FROM V_CUSTOMER_MASTER WHERE CUSTOMER = '{1}'),",V.Local.sSQL,V.Global.sNewCustomer,V.Local.sSQL)
+	F.Intrinsic.String.Build("{0} ADDRESS_2 = (SELECT ADDRESS2 FROM V_CUSTOMER_MASTER WHERE CUSTOMER = '{1}'),",V.Local.sSQL,V.Global.sNewCustomer,V.Local.sSQL)
+	F.Intrinsic.String.Build("{0} ADDRESS_3 = (SELECT ADDRESS3 FROM V_CUSTOMER_INTL WHERE CUSTOMER = '{1}'),",V.Local.sSQL,V.Global.sNewCustomer,V.Local.sSQL)
+	F.Intrinsic.String.Build("{0} ADDRESS_4 = (SELECT ADDRESS4 FROM V_CUSTOMER_INTL WHERE CUSTOMER = '{1}'),",V.Local.sSQL,V.Global.sNewCustomer,V.Local.sSQL)
+	F.Intrinsic.String.Build("{0} ADDRESS_5 = (SELECT ADDRESS5 FROM V_CUSTOMER_INTL WHERE CUSTOMER = '{1}'),",V.Local.sSQL,V.Global.sNewCustomer,V.Local.sSQL)
+	F.Intrinsic.String.Build("{0} CITY = (SELECT CITY FROM V_CUSTOMER_MASTER WHERE CUSTOMER = '{1}'),",V.Local.sSQL,V.Global.sNewCustomer,V.Local.sSQL)
+	F.Intrinsic.String.Build("{0} STATE = (SELECT STATE FROM V_CUSTOMER_MASTER WHERE CUSTOMER = '{1}'),",V.Local.sSQL,V.Global.sNewCustomer,V.Local.sSQL)
+	F.Intrinsic.String.Build("{0} ZIP_CODE = (SELECT ZIP FROM V_CUSTOMER_MASTER WHERE CUSTOMER = '{1}'),",V.Local.sSQL,V.Global.sNewCustomer,V.Local.sSQL)
+	F.Intrinsic.String.Build("{0} COUNTRY = (SELECT COUNTRY FROM V_CUSTOMER_MASTER WHERE CUSTOMER = '{1}'),",V.Local.sSQL,V.Global.sNewCustomer,V.Local.sSQL)
+	F.Intrinsic.String.Build("{0} ATTENTION = (SELECT ATTENTION FROM V_CUSTOMER_MASTER WHERE CUSTOMER = '{1}'),",V.Local.sSQL,V.Global.sNewCustomer,V.Local.sSQL)
+	F.Intrinsic.String.Build("{0} CONTACT = '', CONTACT_PHONE = '', CONTACT_EMAIL = ''",V.Local.sSQL,V.Global.sNewCustomer,V.Local.sSQL)
+	F.Intrinsic.String.Build("{0} WHERE ORDER_NO = '{1}' AND RECORD_TYPE = 'B';",V.Local.sSQL,V.Global.sOrderNo,V.Local.sSQL)
+	F.ODBC.Connection!con.Execute(V.Local.sSQL)
+'ORDER_SHIP_TO
+F.Intrinsic.UI.ChangeWaitStatus("Updating Customer on Sales Order....",60)
+	F.Intrinsic.String.Build("UPDATE ORDER_SHIP_TO SET CUSTOMER = '{0}',",V.Global.sNewCustomer,V.Local.sSQL)
+	F.Intrinsic.String.Build("{0} NAME_CUSTOMER_SHIP = (SELECT NAME_CUSTOMER_SHIP FROM V_CUSTOMER_SHIPTO WHERE CUSTOMER = '{1}'),",V.Local.sSQL,V.Global.sNewCustomer,V.Local.sSQL)
+	F.Intrinsic.String.Build("{0} ADDRESS_1_SHIP = (SELECT ADDRESS1_SHIP FROM V_CUSTOMER_SHIPTO WHERE CUSTOMER = '{1}'),",V.Local.sSQL,V.Global.sNewCustomer,V.Local.sSQL)
+	F.Intrinsic.String.Build("{0} ADDRESS_2_SHIP = (SELECT ADDRESS2_SHIP FROM V_CUSTOMER_SHIPTO WHERE CUSTOMER = '{1}'),",V.Local.sSQL,V.Global.sNewCustomer,V.Local.sSQL)
+	F.Intrinsic.String.Build("{0} ADDRESS_3_SHIP = (SELECT ADDRESS3_SHIP FROM V_CUSTOMER_INTL WHERE CUSTOMER = '{1}'),",V.Local.sSQL,V.Global.sNewCustomer,V.Local.sSQL)
+	F.Intrinsic.String.Build("{0} ADDRESS_4_SHIP = (SELECT ADDRESS4_SHIP FROM V_CUSTOMER_INTL WHERE CUSTOMER = '{1}'),",V.Local.sSQL,V.Global.sNewCustomer,V.Local.sSQL)
+	F.Intrinsic.String.Build("{0} ADDRESS_5_SHIP = (SELECT ADDRESS5_SHIP FROM V_CUSTOMER_INTL WHERE CUSTOMER = '{1}'),",V.Local.sSQL,V.Global.sNewCustomer,V.Local.sSQL)
+	F.Intrinsic.String.Build("{0} CITY_SHIP = (SELECT CITY_SHIP FROM V_CUSTOMER_SHIPTO WHERE CUSTOMER = '{1}'),",V.Local.sSQL,V.Global.sNewCustomer,V.Local.sSQL)
+	F.Intrinsic.String.Build("{0} STATE_SHIP = (SELECT STATE_SHIP FROM V_CUSTOMER_SHIPTO WHERE CUSTOMER = '{1}'),",V.Local.sSQL,V.Global.sNewCustomer,V.Local.sSQL)
+	F.Intrinsic.String.Build("{0} CODE_ZIP_SHIP = (SELECT CODE_ZIP_SHIP FROM V_CUSTOMER_SHIPTO WHERE CUSTOMER = '{1}'),",V.Local.sSQL,V.Global.sNewCustomer,V.Local.sSQL)
+	F.Intrinsic.String.Build("{0} COUNTRY_SHIP = (SELECT COUNTRY_SHIP FROM V_CUSTOMER_SHIPTO WHERE CUSTOMER = '{1}'),",V.Local.sSQL,V.Global.sNewCustomer,V.Local.sSQL)
+	F.Intrinsic.String.Build("{0} ATTENTION_SHIP = (SELECT ATTENTION_SHIP FROM V_CUSTOMER_SHIPTO WHERE CUSTOMER = '{1}'),",V.Local.sSQL,V.Global.sNewCustomer,V.Local.sSQL)
+	F.Intrinsic.String.Build("{0} SALESPERSON_SHIP = (SELECT SALESPERSON FROM V_CUSTOMER_MASTER WHERE CUSTOMER = '{1}')",V.Local.sSQL,V.Global.sNewCustomer,V.Local.sSQL)
+	F.Intrinsic.String.Build("{0} WHERE ORDER_NO = '{1}' AND LTRIM(RECORD_NO) = 'C';",V.Local.sSQL,V.Global.sOrderNo,V.Local.sSQL)
+	F.ODBC.Connection!con.Execute(V.Local.sSQL)
+'ORDER_REPAIR
+F.Intrinsic.UI.ChangeWaitStatus("Updating Customer on Sales Order....",70)
+	F.Intrinsic.String.Build("UPDATE ORDER_REPAIR SET CUSTOMER = '{0}' WHERE ORDER_NO = '{1}' AND LTRIM(RECORD_NO) = 'D';",V.Global.sNewCustomer,V.Global.sOrderNo,V.Local.sSQL)
+	F.ODBC.Connection!con.Execute(V.Local.sSQL)
+'ORDER_LINES
+F.Intrinsic.UI.ChangeWaitStatus("Updating Customer on Sales Order....",80)
+	F.Intrinsic.String.Build("UPDATE ORDER_LINES SET CUSTOMER = '{0}' WHERE ORDER_NO = '{1}' AND RECORD_NO > '0000';",V.Global.sNewCustomer,V.Global.sOrderNo,V.Local.sSQL)
+	F.ODBC.Connection!con.Execute(V.Local.sSQL)
+
+F.Intrinsic.UI.ChangeWaitStatus("Updating Customer on Sales Order....",100)
+F.Intrinsic.UI.CloseWaitDialog
+
+F.Intrinsic.Control.CallSub(Unload)
+Program.Sub.UpdateSOTbl1.End
+
+Program.Sub.cmdShipTo_click.Start
+'Browser to select Ship To ID
+
+V.Local.sSQL.Declare(String)
+V.Local.sRet.Declare(String)
+V.Local.sHeader.Declare(String)
+V.Local.iWidth.Declare(Long)
+
+F.Intrinsic.String.Split("Ship To ID*!*Customer*!*Address*!*City*!*State*!*ZIP","*!*",V.Local.sHeader)
+F.Intrinsic.String.Split("1000*!*1000*!*4000*!*1000*!*500*!*1000","*!*",V.Local.iWidth)
+
+F.Intrinsic.String.Concat("SELECT SHIP_SEQ, CUSTOMER, Concat (SHIP_ADDRESS1, SHIP_ADDRESS2) AS Address, SHIP_CITY, SHIP_STATE, SHIP_ZIP FROM OE_MULTI_SHIP  WHERE CUSTOMER = '",V.Screen.frmSOUpdate!txtNewCust.Text,"' ORDER BY SHIP_SEQ;",V.Local.sSQL)
+F.Intrinsic.UI.Browser("Select Sales Order:","con",V.Local.sSQL,V.Local.sHeader,V.Local.iWidth,V.Local.sRet)
+F.Intrinsic.String.Split(V.Local.sRet,"*!*",V.Local.sRet)
+
+F.Intrinsic.Control.If(V.Local.sRet,"=","***CANCEL***")
+'	F.Intrinsic.UI.Msgbox("No Ship To was selected","Ship To Browser")
+F.Intrinsic.Control.Else
+	V.Global.sShipTo.Set(V.Local.sRet(0))
+	Gui.frmSOUpdate.txtNewShipTo.Text(V.Global.sShipTo)
+F.Intrinsic.Control.EndIf
+Program.Sub.cmdShipTo_click.End
+
+Program.Sub.UpdateSOTbl2.Start
+'ShipTo to No ShipTo
+
+V.Local.sSQL.Declare(String)
+V.Local.sRet.Declare(String)
+
+'ORDER_HEADER
+F.Intrinsic.UI.ChangeWaitStatus("Updating Customer on Sales Order....",20)
+	F.Intrinsic.String.Build("UPDATE ORDER_HEADER SET CUSTOMER = '{0}', SHIP_ID = '', SALESPERSON = (SELECT SALESPERSON FROM V_CUSTOMER_MASTER WHERE CUSTOMER = '{0}') WHERE ORDER_NO = '{1}' AND RECORD_TYPE = 'A';",V.Global.sNewCustomer,V.Global.sOrderNo,V.Local.sSQL)
+	F.ODBC.Connection!con.Execute(V.Local.sSQL)
+'ORDER_BILL_TO
+F.Intrinsic.UI.ChangeWaitStatus("Updating Customer on Sales Order....",40)
+	F.Intrinsic.String.Build("UPDATE ORDER_BILL_TO SET CUSTOMER = '{0}',SHIP_ID = '',",V.Global.sNewCustomer,V.Local.sSQL)
+	F.Intrinsic.String.Build("{0} NAME_CUSTOMER = (SELECT NAME_CUSTOMER FROM V_CUSTOMER_MASTER WHERE CUSTOMER = '{1}'),",V.Local.sSQL,V.Global.sNewCustomer,V.Local.sSQL)
+	F.Intrinsic.String.Build("{0} ADDRESS_1 = (SELECT ADDRESS1 FROM V_CUSTOMER_MASTER WHERE CUSTOMER = '{1}'),",V.Local.sSQL,V.Global.sNewCustomer,V.Local.sSQL)
+	F.Intrinsic.String.Build("{0} ADDRESS_2 = (SELECT ADDRESS2 FROM V_CUSTOMER_MASTER WHERE CUSTOMER = '{1}'),",V.Local.sSQL,V.Global.sNewCustomer,V.Local.sSQL)
+	F.Intrinsic.String.Build("{0} ADDRESS_3 = (SELECT ADDRESS3 FROM V_CUSTOMER_INTL WHERE CUSTOMER = '{1}'),",V.Local.sSQL,V.Global.sNewCustomer,V.Local.sSQL)
+	F.Intrinsic.String.Build("{0} ADDRESS_4 = (SELECT ADDRESS4 FROM V_CUSTOMER_INTL WHERE CUSTOMER = '{1}'),",V.Local.sSQL,V.Global.sNewCustomer,V.Local.sSQL)
+	F.Intrinsic.String.Build("{0} ADDRESS_5 = (SELECT ADDRESS5 FROM V_CUSTOMER_INTL WHERE CUSTOMER = '{1}'),",V.Local.sSQL,V.Global.sNewCustomer,V.Local.sSQL)
+	F.Intrinsic.String.Build("{0} CITY = (SELECT CITY FROM V_CUSTOMER_MASTER WHERE CUSTOMER = '{1}'),",V.Local.sSQL,V.Global.sNewCustomer,V.Local.sSQL)
+	F.Intrinsic.String.Build("{0} STATE = (SELECT STATE FROM V_CUSTOMER_MASTER WHERE CUSTOMER = '{1}'),",V.Local.sSQL,V.Global.sNewCustomer,V.Local.sSQL)
+	F.Intrinsic.String.Build("{0} ZIP_CODE = (SELECT ZIP FROM V_CUSTOMER_MASTER WHERE CUSTOMER = '{1}'),",V.Local.sSQL,V.Global.sNewCustomer,V.Local.sSQL)
+	F.Intrinsic.String.Build("{0} COUNTRY = (SELECT COUNTRY FROM V_CUSTOMER_MASTER WHERE CUSTOMER = '{1}'),",V.Local.sSQL,V.Global.sNewCustomer,V.Local.sSQL)
+	F.Intrinsic.String.Build("{0} ATTENTION = (SELECT ATTENTION FROM V_CUSTOMER_MASTER WHERE CUSTOMER = '{1}'),",V.Local.sSQL,V.Global.sNewCustomer,V.Local.sSQL)
+	F.Intrinsic.String.Build("{0} CONTACT = '', CONTACT_PHONE = '', CONTACT_EMAIL = ''",V.Local.sSQL,V.Global.sNewCustomer,V.Local.sSQL)
+	F.Intrinsic.String.Build("{0} WHERE ORDER_NO = '{1}' AND RECORD_TYPE = 'B';",V.Local.sSQL,V.Global.sOrderNo,V.Local.sSQL)
+	F.ODBC.Connection!con.Execute(V.Local.sSQL)
+'ORDER_SHIP_TO
+F.Intrinsic.UI.ChangeWaitStatus("Updating Customer on Sales Order....",60)
+	'INSERT_1
+	F.Intrinsic.String.Build("INSERT INTO GAB_ORDER_SHIP_TO SELECT * FROM ORDER_SHIP_TO WHERE ORDER_NO = '{0}' AND LTRIM(RECORD_NO) = 'C' AND ORDER_SHIP_ID = '{1}';",V.Global.sOrderNo,V.Global.sOrdShipToID,V.Local.sSQL)
+	F.ODBC.Connection!con.Execute(V.Local.sSQL)
+	'UPDATE
+	F.Intrinsic.String.Build("UPDATE GAB_ORDER_SHIP_TO SET CUSTOMER = '{0}', ORDER_SHIP_ID = '', SHIP_ID = '',",V.Global.sNewCustomer,V.Local.sSQL)
+	F.Intrinsic.String.Build("{0} NAME_CUSTOMER_SHIP = (SELECT NAME_CUSTOMER_SHIP FROM V_CUSTOMER_SHIPTO WHERE CUSTOMER = '{1}'),",V.Local.sSQL,V.Global.sNewCustomer,V.Local.sSQL)
+	F.Intrinsic.String.Build("{0} ADDRESS_1_SHIP = (SELECT ADDRESS1_SHIP FROM V_CUSTOMER_SHIPTO WHERE CUSTOMER = '{1}'),",V.Local.sSQL,V.Global.sNewCustomer,V.Local.sSQL)
+	F.Intrinsic.String.Build("{0} ADDRESS_2_SHIP = (SELECT ADDRESS2_SHIP FROM V_CUSTOMER_SHIPTO WHERE CUSTOMER = '{1}'),",V.Local.sSQL,V.Global.sNewCustomer,V.Local.sSQL)
+	F.Intrinsic.String.Build("{0} ADDRESS_3_SHIP = (SELECT ADDRESS3_SHIP FROM V_CUSTOMER_INTL WHERE CUSTOMER = '{1}'),",V.Local.sSQL,V.Global.sNewCustomer,V.Local.sSQL)
+	F.Intrinsic.String.Build("{0} ADDRESS_4_SHIP = (SELECT ADDRESS4_SHIP FROM V_CUSTOMER_INTL WHERE CUSTOMER = '{1}'),",V.Local.sSQL,V.Global.sNewCustomer,V.Local.sSQL)
+	F.Intrinsic.String.Build("{0} ADDRESS_5_SHIP = (SELECT ADDRESS5_SHIP FROM V_CUSTOMER_INTL WHERE CUSTOMER = '{1}'),",V.Local.sSQL,V.Global.sNewCustomer,V.Local.sSQL)
+	F.Intrinsic.String.Build("{0} CITY_SHIP = (SELECT CITY_SHIP FROM V_CUSTOMER_SHIPTO WHERE CUSTOMER = '{1}'),",V.Local.sSQL,V.Global.sNewCustomer,V.Local.sSQL)
+	F.Intrinsic.String.Build("{0} STATE_SHIP = (SELECT STATE_SHIP FROM V_CUSTOMER_SHIPTO WHERE CUSTOMER = '{1}'),",V.Local.sSQL,V.Global.sNewCustomer,V.Local.sSQL)
+	F.Intrinsic.String.Build("{0} CODE_ZIP_SHIP = (SELECT CODE_ZIP_SHIP FROM V_CUSTOMER_SHIPTO WHERE CUSTOMER = '{1}'),",V.Local.sSQL,V.Global.sNewCustomer,V.Local.sSQL)
+	F.Intrinsic.String.Build("{0} COUNTRY_SHIP = (SELECT COUNTRY_SHIP FROM V_CUSTOMER_SHIPTO WHERE CUSTOMER = '{1}'),",V.Local.sSQL,V.Global.sNewCustomer,V.Local.sSQL)
+	F.Intrinsic.String.Build("{0} ATTENTION_SHIP = (SELECT ATTENTION_SHIP FROM V_CUSTOMER_SHIPTO WHERE CUSTOMER = '{1}'),",V.Local.sSQL,V.Global.sNewCustomer,V.Local.sSQL)
+	F.Intrinsic.String.Build("{0} SALESPERSON_SHIP = (SELECT SALESPERSON FROM V_CUSTOMER_MASTER WHERE CUSTOMER = '{1}')",V.Local.sSQL,V.Global.sNewCustomer,V.Local.sSQL)
+	F.Intrinsic.String.Build("{0} WHERE ORDER_NO = '{1}' AND LTRIM(RECORD_NO) = 'C';",V.Local.sSQL,V.Global.sOrderNo,V.Local.sSQL)
+	F.ODBC.Connection!con.Execute(V.Local.sSQL)
+	'DELETE
+	F.Intrinsic.String.Build("SELECT ORDER_NO FROM V_ORDER_SHIP_TO WHERE ORDER_NO = '{0}' AND ORDER_SHIP_ID = '{1}';",V.Global.sOrderNo,V.Global.sShipTo,V.Local.sSQL)
+	F.ODBC.Connection!con.ExecuteAndReturn(V.Local.sSQL,V.Local.sRet)
+	F.Intrinsic.Control.If(V.Local.sRet,<>,"")
+		F.Intrinsic.String.Build("DELETE FROM ORDER_SHIP_TO WHERE ORDER_NO = '{0}' AND LTRIM(RECORD_NO) = 'C' AND ORDER_SHIP_ID = '{1}';",V.Global.sOrderNo,V.Global.sShipTo,V.Local.sSQL)
+		F.ODBC.Connection!con.Execute(V.Local.sSQL)
+	F.Intrinsic.Control.EndIf
+	'INSERT_2
+	F.Intrinsic.String.Build("INSERT INTO ORDER_SHIP_TO SELECT * FROM GAB_ORDER_SHIP_TO WHERE ORDER_NO = '{0}' AND LTRIM(RECORD_NO) = 'C';",V.Global.sOrderNo,V.Local.sSQL)
+	F.ODBC.Connection!con.Execute(V.Local.sSQL)
+'ORDER_REPAIR
+F.Intrinsic.UI.ChangeWaitStatus("Updating Customer on Sales Order....",70)
+	F.Intrinsic.String.Build("UPDATE ORDER_REPAIR SET CUSTOMER = '{0}', SHIP_ID = '' WHERE ORDER_NO = '{1}' AND LTRIM(RECORD_NO) = 'D';",V.Global.sNewCustomer,V.Global.sOrderNo,V.Local.sSQL)
+	F.ODBC.Connection!con.Execute(V.Local.sSQL)
+'ORDER_LINES
+F.Intrinsic.UI.ChangeWaitStatus("Updating Customer on Sales Order....",80)
+	F.Intrinsic.String.Build("UPDATE ORDER_LINES SET CUSTOMER = '{0}', SHIP_ID = '' WHERE ORDER_NO = '{1}' AND RECORD_NO > '0000';",V.Global.sNewCustomer,V.Global.sOrderNo,V.Local.sSQL)
+	F.ODBC.Connection!con.Execute(V.Local.sSQL)
+
+F.Intrinsic.UI.ChangeWaitStatus("Updating Customer on Sales Order....",100)
+F.Intrinsic.UI.CloseWaitDialog
+
+F.Intrinsic.Control.CallSub(Unload)
+Program.Sub.UpdateSOTbl2.End
+
+Program.Sub.UpdateSOTbl3.Start
+'No ShipTo to ShipTo
+'ShipTo to ShipTo
+
+V.Local.sSQL.Declare(String)
+V.Local.sRet.Declare(String)
+
+'ORDER_HEADER
+F.Intrinsic.UI.ChangeWaitStatus("Updating Customer on Sales Order....",20)
+	F.Intrinsic.String.Build("UPDATE ORDER_HEADER SET CUSTOMER = '{0}', SHIP_ID = '{2}', SALESPERSON = (SELECT SALESPERSON FROM V_CUSTOMER_MASTER WHERE CUSTOMER = '{0}') WHERE ORDER_NO = '{1}' AND RECORD_TYPE = 'A';",V.Global.sNewCustomer,V.Global.sOrderNo,V.Global.sShipTo,V.Local.sSQL)
+	F.ODBC.Connection!con.Execute(V.Local.sSQL)
+'ORDER_BILL_TO
+F.Intrinsic.UI.ChangeWaitStatus("Updating Customer on Sales Order....",40)
+	F.Intrinsic.String.Build("UPDATE ORDER_BILL_TO SET CUSTOMER = '{0}',SHIP_ID = '{1}',",V.Global.sNewCustomer,V.Global.sShipTo,V.Local.sSQL)
+	F.Intrinsic.String.Build("{0} NAME_CUSTOMER = (SELECT NAME_CUSTOMER FROM V_CUSTOMER_MASTER WHERE CUSTOMER = '{1}'),",V.Local.sSQL,V.Global.sNewCustomer,V.Local.sSQL)
+	F.Intrinsic.String.Build("{0} ADDRESS_1 = (SELECT ADDRESS1 FROM V_CUSTOMER_MASTER WHERE CUSTOMER = '{1}'),",V.Local.sSQL,V.Global.sNewCustomer,V.Local.sSQL)
+	F.Intrinsic.String.Build("{0} ADDRESS_2 = (SELECT ADDRESS2 FROM V_CUSTOMER_MASTER WHERE CUSTOMER = '{1}'),",V.Local.sSQL,V.Global.sNewCustomer,V.Local.sSQL)
+	F.Intrinsic.String.Build("{0} ADDRESS_3 = (SELECT ADDRESS3 FROM V_CUSTOMER_INTL WHERE CUSTOMER = '{1}'),",V.Local.sSQL,V.Global.sNewCustomer,V.Local.sSQL)
+	F.Intrinsic.String.Build("{0} ADDRESS_4 = (SELECT ADDRESS4 FROM V_CUSTOMER_INTL WHERE CUSTOMER = '{1}'),",V.Local.sSQL,V.Global.sNewCustomer,V.Local.sSQL)
+	F.Intrinsic.String.Build("{0} ADDRESS_5 = (SELECT ADDRESS5 FROM V_CUSTOMER_INTL WHERE CUSTOMER = '{1}'),",V.Local.sSQL,V.Global.sNewCustomer,V.Local.sSQL)
+	F.Intrinsic.String.Build("{0} CITY = (SELECT CITY FROM V_CUSTOMER_MASTER WHERE CUSTOMER = '{1}'),",V.Local.sSQL,V.Global.sNewCustomer,V.Local.sSQL)
+	F.Intrinsic.String.Build("{0} STATE = (SELECT STATE FROM V_CUSTOMER_MASTER WHERE CUSTOMER = '{1}'),",V.Local.sSQL,V.Global.sNewCustomer,V.Local.sSQL)
+	F.Intrinsic.String.Build("{0} ZIP_CODE = (SELECT ZIP FROM V_CUSTOMER_MASTER WHERE CUSTOMER = '{1}'),",V.Local.sSQL,V.Global.sNewCustomer,V.Local.sSQL)
+	F.Intrinsic.String.Build("{0} COUNTRY = (SELECT COUNTRY FROM V_CUSTOMER_MASTER WHERE CUSTOMER = '{1}'),",V.Local.sSQL,V.Global.sNewCustomer,V.Local.sSQL)
+	F.Intrinsic.String.Build("{0} ATTENTION = (SELECT ATTENTION FROM V_CUSTOMER_MASTER WHERE CUSTOMER = '{1}'),",V.Local.sSQL,V.Global.sNewCustomer,V.Local.sSQL)
+	F.Intrinsic.String.Build("{0} CONTACT = '', CONTACT_PHONE = '', CONTACT_EMAIL = ''",V.Local.sSQL,V.Global.sNewCustomer,V.Local.sSQL)
+	F.Intrinsic.String.Build("{0} WHERE ORDER_NO = '{1}' AND RECORD_TYPE = 'B';",V.Local.sSQL,V.Global.sOrderNo,V.Local.sSQL)
+	F.ODBC.Connection!con.Execute(V.Local.sSQL)
+'ORDER_SHIP_TO
+F.Intrinsic.UI.ChangeWaitStatus("Updating Customer on Sales Order....",60)
+	'INSERT_1
+	F.Intrinsic.String.Build("INSERT INTO GAB_ORDER_SHIP_TO SELECT * FROM ORDER_SHIP_TO WHERE ORDER_NO = '{0}' AND LTRIM(RECORD_NO) = 'C' AND ORDER_SHIP_ID = '{1}';",V.Global.sOrderNo,V.Global.sOrdShipToID,V.Local.sSQL)
+	F.ODBC.Connection!con.Execute(V.Local.sSQL)
+	'UPDATE
+	F.Intrinsic.String.Build("UPDATE GAB_ORDER_SHIP_TO SET CUSTOMER = '{0}', ORDER_SHIP_ID = '{1}', SHIP_ID = '{1}',",V.Global.sNewCustomer,V.Global.sShipTo,V.Local.sSQL)
+	F.Intrinsic.String.Build("{0} NAME_CUSTOMER_SHIP = (SELECT CUSTOMER_NAME FROM V_OE_MULTI_SHIP WHERE CUSTOMER = '{1}' AND SHIP_SEQ = '{2}'),",V.Local.sSQL,V.Global.sNewCustomer,V.Global.sShipTo,V.Local.sSQL)
+	F.Intrinsic.String.Build("{0} ADDRESS_1_SHIP = (SELECT SHIP_ADDRESS1 FROM V_OE_MULTI_SHIP WHERE CUSTOMER = '{1}' AND SHIP_SEQ = '{2}'),",V.Local.sSQL,V.Global.sNewCustomer,V.Global.sShipTo,V.Local.sSQL)
+	F.Intrinsic.String.Build("{0} ADDRESS_2_SHIP = (SELECT SHIP_ADDRESS2 FROM V_OE_MULTI_SHIP WHERE CUSTOMER = '{1}' AND SHIP_SEQ = '{2}'),",V.Local.sSQL,V.Global.sNewCustomer,V.Global.sShipTo,V.Local.sSQL)
+	F.Intrinsic.String.Build("{0} ADDRESS_3_SHIP = (SELECT SHIP_ADDRESS3 FROM V_OE_MULTI_SHIP WHERE CUSTOMER = '{1}' AND SHIP_SEQ = '{2}'),",V.Local.sSQL,V.Global.sNewCustomer,V.Global.sShipTo,V.Local.sSQL)
+	F.Intrinsic.String.Build("{0} ADDRESS_4_SHIP = (SELECT SHIP_ADDRESS4 FROM V_OE_MULTI_SHIP WHERE CUSTOMER = '{1}' AND SHIP_SEQ = '{2}'),",V.Local.sSQL,V.Global.sNewCustomer,V.Global.sShipTo,V.Local.sSQL)
+	F.Intrinsic.String.Build("{0} ADDRESS_5_SHIP = (SELECT SHIP_ADDRESS5 FROM V_OE_MULTI_SHIP WHERE CUSTOMER = '{1}' AND SHIP_SEQ = '{2}'),",V.Local.sSQL,V.Global.sNewCustomer,V.Global.sShipTo,V.Local.sSQL)
+	F.Intrinsic.String.Build("{0} CITY_SHIP = (SELECT SHIP_CITY FROM V_OE_MULTI_SHIP WHERE CUSTOMER = '{1}' AND SHIP_SEQ = '{2}'),",V.Local.sSQL,V.Global.sNewCustomer,V.Global.sShipTo,V.Local.sSQL)
+	F.Intrinsic.String.Build("{0} STATE_SHIP = (SELECT SHIP_STATE FROM V_OE_MULTI_SHIP WHERE CUSTOMER = '{1}' AND SHIP_SEQ = '{2}'),",V.Local.sSQL,V.Global.sNewCustomer,V.Global.sShipTo,V.Local.sSQL)
+	F.Intrinsic.String.Build("{0} CODE_ZIP_SHIP = (SELECT SHIP_ZIP FROM V_OE_MULTI_SHIP WHERE CUSTOMER = '{1}' AND SHIP_SEQ = '{2}'),",V.Local.sSQL,V.Global.sNewCustomer,V.Global.sShipTo,V.Local.sSQL)
+	F.Intrinsic.String.Build("{0} COUNTRY_SHIP = (SELECT SHIP_COUNTRY FROM V_OE_MULTI_SHIP WHERE CUSTOMER = '{1}' AND SHIP_SEQ = '{2}'),",V.Local.sSQL,V.Global.sNewCustomer,V.Global.sShipTo,V.Local.sSQL)
+	F.Intrinsic.String.Build("{0} ATTENTION_SHIP = (SELECT SHIP_ATTENTION FROM V_OE_MULTI_SHIP WHERE CUSTOMER = '{1}' AND SHIP_SEQ = '{2}'),",V.Local.sSQL,V.Global.sNewCustomer,V.Global.sShipTo,V.Local.sSQL)
+	F.Intrinsic.String.Build("{0} SALESPERSON_SHIP = (SELECT SHIP_SALESPERSON FROM V_OE_MULTI_SHIP WHERE CUSTOMER = '{1}' AND SHIP_SEQ = '{2}')",V.Local.sSQL,V.Global.sNewCustomer,V.Global.sShipTo,V.Local.sSQL)
+	F.Intrinsic.String.Build("{0} WHERE ORDER_NO = '{1}' AND LTRIM(RECORD_NO) = 'C';",V.Local.sSQL,V.Global.sOrderNo,V.Local.sSQL)
+	F.ODBC.Connection!con.Execute(V.Local.sSQL)
+	'DELETE
+	F.Intrinsic.String.Build("SELECT ORDER_NO FROM V_ORDER_SHIP_TO WHERE ORDER_NO = '{0}' AND ORDER_SHIP_ID = '{1}';",V.Global.sOrderNo,V.Global.sShipTo,V.Local.sSQL)
+	F.ODBC.Connection!con.ExecuteAndReturn(V.Local.sSQL,V.Local.sRet)
+	F.Intrinsic.Control.If(V.Local.sRet,<>,"")
+		F.Intrinsic.String.Build("DELETE FROM ORDER_SHIP_TO WHERE ORDER_NO = '{0}' AND LTRIM(RECORD_NO) = 'C' AND ORDER_SHIP_ID = '{1}';",V.Global.sOrderNo,V.Global.sShipTo,V.Local.sSQL)
+		F.ODBC.Connection!con.Execute(V.Local.sSQL)
+	F.Intrinsic.Control.EndIf
+	'INSERT_2
+	F.Intrinsic.String.Build("INSERT INTO ORDER_SHIP_TO SELECT * FROM GAB_ORDER_SHIP_TO WHERE ORDER_NO = '{0}' AND LTRIM(RECORD_NO) = 'C';",V.Global.sOrderNo,V.Local.sSQL)
+	F.ODBC.Connection!con.Execute(V.Local.sSQL)
+'ORDER_REPAIR
+F.Intrinsic.UI.ChangeWaitStatus("Updating Customer on Sales Order....",70)
+	F.Intrinsic.String.Build("UPDATE ORDER_REPAIR SET CUSTOMER = '{0}', SHIP_ID = '' WHERE ORDER_NO = '{1}' AND LTRIM(RECORD_NO) = 'D';",V.Global.sNewCustomer,V.Global.sOrderNo,V.Local.sSQL)
+	F.ODBC.Connection!con.Execute(V.Local.sSQL)
+'ORDER_LINES
+F.Intrinsic.UI.ChangeWaitStatus("Updating Customer on Sales Order....",80)
+	F.Intrinsic.String.Build("UPDATE ORDER_LINES SET CUSTOMER = '{0}', SHIP_ID = '{1}' WHERE ORDER_NO = '{2}' AND RECORD_TYPE = 'L';",V.Global.sNewCustomer,V.Global.sShipTo,V.Global.sOrderNo,V.Local.sSQL)
+	F.ODBC.Connection!con.Execute(V.Local.sSQL)
+
+F.Intrinsic.UI.ChangeWaitStatus("Updating Customer on Sales Order....",100)
+F.Intrinsic.UI.CloseWaitDialog
+
+F.Intrinsic.Control.CallSub(Unload)
+Program.Sub.UpdateSOTbl3.End
+
+Program.Sub.CreateOrdShipTo.Start
+'Create Temporary Table to update ORDER_SHIP_TO when a Ship To ID is selected
+
+V.Local.iHndl.Declare(Long)
+V.Local.bFileExists.Declare(Boolean)
+V.Local.bTableExists.Declare(Boolean)
+V.Local.sFileLoc.Declare(String)
+V.Local.sFileLoc2.Declare(String)
+V.Local.sCreateTables.Declare(String)
+V.Local.sGSVersionCheck.Declare(String)
+
+F.Intrinsic.File.GetHandle(V.Local.iHndl)
+
+'Create batch file to run GSSCompare to create Temp Table
+F.Intrinsic.String.Build("{0}\GAB_ORDER_SHIP_TO.bat",V.Caller.ScriptsDir,V.Local.sFileLoc)
+F.ODBC.Connection!con.TableExists("GAB_ORDER_SHIP_TO",V.Local.bTableExists)
+
+'Create a version check file
+F.Intrinsic.String.Build("{0}\GAB\GAS\GAB_SO_CustomerChangeCheck.txt",V.Caller.PluginsDir,V.Local.sFileLoc2)
+F.Intrinsic.File.Exists(V.Local.sFileLoc2,V.Local.bFileExists)
+
+F.Intrinsic.Control.If(V.Local.bFileExists,=,False)
+	F.Intrinsic.File.String2File(V.Local.sFileLoc2,V.Caller.GSSVersion)
+		F.Intrinsic.Control.If(V.Local.bTableExists,=,False)
+			F.Intrinsic.String.Build("{0}\GSSCOMPARE.EXE #C{1} #V{2} #TORDER_SHIP_TO $DB0 #DGAB_ORDER_SHIP_TO",V.Caller.PluginsDir,V.Caller.CompanyCode,V.Caller.GSSVersion,V.Local.sCreateTables)
+			F.Intrinsic.File.String2File(V.Local.sFileLoc,V.Local.sCreateTables)
+		F.Intrinsic.Control.Else
+			F.ODBC.Connection!con.Execute("DROP TABLE GAB_ORDER_SHIP_TO;")
+			F.Intrinsic.String.Build("{0}\GSSCOMPARE.EXE #C{1} #V{2} #TORDER_SHIP_TO $DB0 #DGAB_ORDER_SHIP_TO",V.Caller.PluginsDir,V.Caller.CompanyCode,V.Caller.GSSVersion,V.Local.sCreateTables)
+			F.Intrinsic.File.String2File(V.Local.sFileLoc,V.Local.sCreateTables)
+		F.Intrinsic.Control.EndIf
+	F.Intrinsic.Task.ShellExec(V.Local.iHndl,"Open",V.Local.sFileLoc,"","",1)
+	F.Intrinsic.UI.Msgbox("This is a one time run for the creation of a custom table. After, GSSCompare runs click OK to continue.","One Time Run Setup")
+	F.Intrinsic.File.DeleteFile(V.Local.sFileLoc)
+F.Intrinsic.Control.Else
+	F.Intrinsic.File.File2String(V.Local.sFileLoc2,V.Local.sGSVersionCheck)
+		F.Intrinsic.Control.If(V.Local.sGSVersionCheck,<>,V.Caller.GSSVersion)
+			F.Intrinsic.File.String2File(V.Local.sFileLoc2,V.Caller.GSSVersion)
+				F.Intrinsic.Control.If(V.Local.bTableExists,=,False)
+					F.Intrinsic.String.Build("{0}\GSSCOMPARE.EXE #C{1} #V{2} #TORDER_SHIP_TO $DB0 #DGAB_ORDER_SHIP_TO",V.Caller.PluginsDir,V.Caller.CompanyCode,V.Caller.GSSVersion,V.Local.sCreateTables)
+					F.Intrinsic.File.String2File(V.Local.sFileLoc,V.Local.sCreateTables)
+				F.Intrinsic.Control.Else
+					F.ODBC.Connection!con.Execute("DROP TABLE GAB_ORDER_SHIP_TO;")
+					F.Intrinsic.String.Build("{0}\GSSCOMPARE.EXE #C{1} #V{2} #TORDER_SHIP_TO $DB0 #DGAB_ORDER_SHIP_TO",V.Caller.PluginsDir,V.Caller.CompanyCode,V.Caller.GSSVersion,V.Local.sCreateTables)
+					F.Intrinsic.File.String2File(V.Local.sFileLoc,V.Local.sCreateTables)
+				F.Intrinsic.Control.EndIf
+			F.Intrinsic.Task.ShellExec(V.Local.iHndl,"Open",V.Local.sFileLoc,"","",1)
+			F.Intrinsic.UI.Msgbox("Checking custom table for updates. After, GSSCompare runs click OK to continue.","Global Shop Version Changed:")
+			F.Intrinsic.File.DeleteFile(V.Local.sFileLoc)
+		F.Intrinsic.Control.EndIf
+F.Intrinsic.Control.EndIf
+
+F.Intrinsic.Control.ExitSub
+Program.Sub.CreateOrdShipTo.End
+
+Program.Sub.Unload_Form.Start
+F.ODBC.Connection!con.Close
+F.Intrinsic.Control.End
+
+Program.Sub.Unload_Form.End
+
+Program.Sub.txtNewCust_LostFocus.Start
+'Validate the Customer selected
+
+V.Local.sSQL.Declare(String)
+V.Local.sRet.Declare(String)
+
+V.Global.sNewCustomer.Set(V.Screen.frmSOUpdate!txtNewCust.Text)
+
+F.Intrinsic.Control.If(V.Global.sNewCustomer,<>,"")
+	F.Intrinsic.String.Build("SELECT CUSTOMER FROM V_CUSTOMER_MASTER WHERE CUSTOMER = '{0}';",V.Global.sNewCustomer,V.Local.sSQL)
+	F.ODBC.Connection!con.ExecuteAndReturn(V.Local.sSQL,V.Local.sRet)
+
+	F.Intrinsic.Control.If(V.Local.sRet,=,"")
+		F.Intrinsic.UI.Msgbox("The Customer entered is invalid","Customer Validation")
+		Gui.frmSOUpdate.txtNewCust.Text("")
+		Gui.frmSOUpdate.txtNewCust.SetFocus
+	F.Intrinsic.Control.Else
+		F.Intrinsic.String.Build("SELECT CUSTOMER FROM V_OE_MULTI_SHIP WHERE CUSTOMER = '{0}';",V.Global.sNewCustomer,V.Local.sSQL)
+		F.ODBC.Connection!con.ExecuteAndReturn(V.Local.sSQL,V.Local.sRet)
+		F.Intrinsic.Control.If(V.Local.sRet,=,"")
+			Gui.frmSOUpdate.txtNewShipTo.Enabled(False)
+			Gui.frmSOUpdate.cmdShipTo.Enabled(False)
+		F.Intrinsic.Control.Else
+			Gui.frmSOUpdate.txtNewShipTo.Enabled(True)
+			Gui.frmSOUpdate.cmdShipTo.Enabled(True)
+		F.Intrinsic.Control.EndIf
+	F.Intrinsic.Control.EndIf
+F.Intrinsic.Control.EndIf
+Program.Sub.txtNewCust_LostFocus.End
+
+Program.Sub.txtOrdNo_LostFocus.Start
+'Validate the Sales Order entered is an active Sales Order
+
+V.Local.sSQL.Declare(String)
+V.Local.sRet.Declare(String)
+
+V.Global.sOrderNo.Set(V.Screen.frmSOUpdate!txtOrderNo.Text)
+
+F.Intrinsic.Control.If(V.Global.sOrderNo,<>,"")
+	F.Intrinsic.String.Build("SELECT ORDER_NO, CUSTOMER FROM V_ORDER_HEADER WHERE ORDER_NO = '{0}';",V.Global.sOrderNo,V.Local.sSQL)
+	F.ODBC.Connection!con.ExecuteAndReturn(V.Local.sSQL,V.Local.sRet)
+	F.Intrinsic.String.Split(V.Local.sRet,"*!*",V.Local.sRet)
+
+	F.Intrinsic.Control.If(V.Local.sRet(0),=,"")
+		F.Intrinsic.UI.Msgbox("The Sales Order entered is invalid","Sales Order Validation")
+		Gui.frmSOUpdate.txtOrderNo.Text("")
+		Gui.frmSOUpdate.txtOldCust.Text("")
+		Gui.frmSOUpdate.txtOrderNo.SetFocus
+	F.Intrinsic.Control.Else
+		V.Global.sOldCustomer.Set(V.Local.sRet(1))
+		Gui.frmSOUpdate.txtOldCust.Text(V.Global.sOldCustomer)
+		Gui.frmSOUpdate.txtOrderNo.Text(V.Global.sOrderNo)
+	F.Intrinsic.Control.EndIf
+F.Intrinsic.Control.EndIf
+Program.Sub.txtOrdNo_LostFocus.End
+
+Program.Sub.txtShipTo_LostFocus.Start
+'Validate the Ship To entered is an active Ship To ID
+
+V.Local.sSQL.Declare(String)
+V.Local.sRet.Declare(String)
+
+V.Global.sShipTo.Set(V.Screen.frmSOUpdate!txtNewShipTo.Text)
+
+F.Intrinsic.Control.If(V.Global.sShipTo,<>,"")
+	F.Intrinsic.String.Build("SELECT CUSTOMER, SHIP_SEQ FROM V_OE_MULTI_SHIP WHERE CUSTOMER = '{0}' AND SHIP_SEQ = '{1}';",V.Global.sNewCustomer,V.Global.sShipTo,V.Local.sSQL)
+	F.ODBC.Connection!con.ExecuteAndReturn(V.Local.sSQL,V.Local.sRet)
+	F.Intrinsic.String.Split(V.Local.sRet,"*!*",V.Local.sRet)
+
+	F.Intrinsic.Control.If(V.Local.sRet(0),=,"")
+		F.Intrinsic.UI.Msgbox("The Ship To entered is invalid","Ship To Validation")
+		Gui.frmSOUpdate.txtNewShipTo.Text("")
+		Gui.frmSOUpdate.txtNewShipTo.SetFocus
+	F.Intrinsic.Control.EndIf
+F.Intrinsic.Control.EndIf
+Program.Sub.txtShipTo_LostFocus.End
+
+Program.Sub.Comments.Start
+${$0$}$Create_and_move_data$}$SUPERVSR$}$03/10/2014$}$False
+Program.Sub.Comments.End
